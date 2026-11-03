@@ -5,6 +5,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.exceptions import RequestValidationError
 from fastapi.staticfiles import StaticFiles
 from app.config import UPLOAD_DIR
+from app.models.course_docs import CourseDocChunk, CourseDocument
 from app.models.courses import Course
 from app.models.enrollments import CourseEnrollment  # 确保 create_all 能创建选课表
 from app.models.schedules import CourseSchedule  # 确保 create_all 能创建课表

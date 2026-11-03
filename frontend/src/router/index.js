@@ -11,6 +11,8 @@ const router = createRouter({
       component: () => import('@/layouts/Layout.vue'),
       children: [
         { path: 'home', name: 'Home', component: () => import('@/views/Home.vue') },
+        // 课程助手：管理员和学生都可以使用
+        { path: 'chat', name: 'Chat', component: () => import('@/views/Chat.vue') },
         // 课程页面：管理员可维护，学生只读
         { path: 'course', name: 'Course', component: () => import('@/views/Course.vue') },
         // 课表管理：仅管理员
@@ -18,6 +20,13 @@ const router = createRouter({
           path: 'schedule',
           name: 'ScheduleManage',
           component: () => import('@/views/ScheduleManage.vue'),
+          meta: { role: 'admin' }
+        },
+        // 资料管理：仅管理员
+        {
+          path: 'course-docs',
+          name: 'CourseDocs',
+          component: () => import('@/views/CourseDocs.vue'),
           meta: { role: 'admin' }
         },
         // 课程课表：学生端查询

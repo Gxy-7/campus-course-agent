@@ -48,3 +48,8 @@ def get_current_student(current_user: User = Depends(get_current_user)) -> User:
     if current_user.role != "student":
         raise BusinessException(message="仅学生可选课", code=403)
     return current_user
+
+
+def get_access_token(token: str = Depends(oauth2_scheme)) -> str:
+    """获取原始 JWT，用于转发给 MCP 服务"""
+    return token

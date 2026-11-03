@@ -42,6 +42,11 @@
               <el-icon><icon-menu /></el-icon>
               <span>系统首页</span>
             </el-menu-item>
+            <!-- 课程助手：管理员和学生都能用 -->
+            <el-menu-item index="/manager/chat">
+              <el-icon><ChatDotRound /></el-icon>
+              <span>课程助手</span>
+            </el-menu-item>
             <!-- 管理员显示“课程管理”，学生显示“课程列表” -->
             <el-menu-item index="/manager/course">
               <el-icon><Reading /></el-icon>
@@ -51,6 +56,11 @@
             <el-menu-item v-if="userInfo?.role === 'admin'" index="/manager/schedule">
               <el-icon><Calendar /></el-icon>
               <span>课表管理</span>
+            </el-menu-item>
+            <!-- 管理员资料管理 -->
+            <el-menu-item v-if="userInfo?.role === 'admin'" index="/manager/course-docs">
+              <el-icon><Document /></el-icon>
+              <span>资料管理</span>
             </el-menu-item>
             <el-menu-item v-else index="/manager/timetable">
               <el-icon><Calendar /></el-icon>
@@ -79,7 +89,15 @@
 import router from '@/router'
 import { logout } from '@/utils/auth'
 import { useUser } from '@/utils/user'
-import { Calendar, Menu as IconMenu, Notebook, Reading, User } from '@element-plus/icons-vue'
+import {
+  Calendar,
+  ChatDotRound,
+  Document,
+  Menu as IconMenu,
+  Notebook,
+  Reading,
+  User
+} from '@element-plus/icons-vue'
 
 const { userInfo } = useUser()
 
