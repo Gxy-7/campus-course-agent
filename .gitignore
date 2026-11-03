@@ -1,0 +1,24 @@
+# Python
+backend/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Secrets
+backend/.env
+.env
+
+# Uploads and generated data
+backend/uploads/
+backend/chroma_data/
+frontend/dist/
+*.log
+
+# Node
+frontend/node_modules/
+
+# IDE / OS
+.idea/
+.DS_Store
+Thumbs.db
